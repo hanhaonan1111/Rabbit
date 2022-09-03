@@ -1,0 +1,33 @@
+.root {
+  :global {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .box {
+      height: 300px;
+    }
+
+    .nav {
+      width: 100%;
+      background-color: pink;
+      position: fixed;
+      top: -300px;
+      z-index: 999;
+      transition: all .3s .1s;
+    }
+
+    .show {
+      top: 0;
+      height: auto;
+    }
+
+    .none {
+
+      height: 0;
+    }
+
+
+  }
+}
