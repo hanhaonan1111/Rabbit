@@ -1,5 +1,11 @@
 let store = {
-    tabBarData: []
+    tabBarData: [],
+    TabPinPai: [],
+    swiperData: [],
+    HomeNewGoods: [],
+    Recommend: [],
+    HotBrand: [],
+    production: []
 }
 
 function HomeReducer(state = store, action) {
@@ -8,6 +14,36 @@ function HomeReducer(state = store, action) {
             return {
                 ...state,
                 tabBarData: [...action.data]
+            }
+        case '/home/SetPinPai':
+            return {
+                ...state,
+                TabPinPai: [...action.data]
+            }
+        case 'home/swiperData':
+            return {
+                ...state,
+                swiperData: [...action.data]
+            }
+        case 'home/setNewGoods':
+            return {
+                ...state,
+                HomeNewGoods: [...action.data]
+            }
+        case 'home/setRecommend':
+            return {
+                ...state,
+                Recommend: [...action.data]
+            }
+        case 'home/setHotReand':
+            return {
+                ...state,
+                HotBrand: [...action.data]
+            }
+        case  'home/setHomeProduct':
+            return {
+                ...state,
+                production: [...action.data]
             }
         default:
             return state;

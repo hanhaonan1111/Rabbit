@@ -1,0 +1,43 @@
+.root {
+  :global {
+    .goods-list {
+      display: flex;
+      justify-content: space-between;
+      height: 426px;
+
+      li {
+        width: 306px;
+        height: 406px;
+
+
+        div {
+          transition: all .2s .1s linear;
+        }
+
+        img {
+          width: 306px;
+          height: 306px;
+        }
+
+        &:hover {
+          div {
+            transform: translateY(-3px);
+            box-shadow: 0 3px 5px #aeacac;
+          }
+
+        }
+
+        p {
+          font-size: 22px;
+          padding-top: 12px;
+          text-align: center;
+        }
+
+        .desc {
+          color: #999;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

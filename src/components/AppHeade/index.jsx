@@ -18,7 +18,7 @@ function Index(props) {
                 </div>
                 <div className="cart">
                     <a className="curr" href="#">
-                        <i className="iconfont icon-gouwuchetianjia"></i><em>2</em>
+                        <i className="iconfont  icon-cart"></i><em>2</em>
                     </a>
                 </div>
             </div>

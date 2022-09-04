@@ -2,23 +2,27 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import style from './index.module.scss'
 import {useSelector} from "react-redux";
+import Skeleton from "@/components/Skeleton";
+import {topCategory} from "@/assets/constant/randerData";
 
 function Index(props) {
-    let {tabBarData} = useSelector(v => v.HomeReducer)
+    let {tabBarData, TabPinPai} = useSelector(v => v.HomeReducer)
+    console.log(tabBarData.length, '[][]')
     return (
         <div className={style.root}>
             <div className='home-category'>
                 <ul className="menu">
                     {
-                        tabBarData.map(v => {
+                        tabBarData.length > 0 ? tabBarData.map(v => {
                             return <li key={v.id}>
+
                                 <NavLink to={`/category/${v.id}`}>{v.name}</NavLink>
                                 <NavLink to={`/category/${v.children[0]?.id}`}>{v.children[0]?.name}</NavLink>
                                 <NavLink to={`/category/${v.children[1]?.id}`}>{v.children[1]?.name}</NavLink>
 
                                 <div className="right">
                                     <div className="layer">
-                                        <h4>分类推荐 <small>根据您的购买或浏览记录推荐</small></h4>
+                                        <h4>{v.name} <small>根据您的购买或浏览记录推荐</small></h4>
                                         <ul>
                                             {
                                                 v.goods.map(goods => {
@@ -41,11 +45,49 @@ function Index(props) {
                                     </div>
                                 </div>
                             </li>
-                        })
+                        }) : (
+                            topCategory.map((v, i) => {
+                                return (
+                                    <li className='Skeleton' key={i}>
+                                        <NavLink to='/'>{v}</NavLink>
+                                        <Skeleton width={56} height={18} bg="rgba(255,255,255,0.2)"></Skeleton>
+                                        <Skeleton width={56} height={18} bg="rgba(255,255,255,0.2)"></Skeleton>
+                                    </li>)
+                            })
+
+                        )
+
                     }
                     <li>
                         <NavLink to="/">品牌</NavLink>
                         <NavLink to="/">品牌推荐</NavLink>
+                        <div className="right">
+                            <div className="layer">
+                                <h4>品牌推荐 <small>根据您的购买或浏览记录推荐</small></h4>
+                                <ul>
+                                    {
+                                        TabPinPai && TabPinPai.map((v, i) => {
+                                            if (i === 6) {
+                                                return null
+                                            }
+                                            return <li key={v.id}>
+                                                <NavLink to="/">
+                                                    <img
+                                                        src={v.picture}
+                                                        alt=""/>
+                                                    <div className="info">
+                                                        <p className="name ellipsis-2">{v.name}</p>
+                                                        <p className="desc ellipsis">{v.desc}</p>
+                                                        <p className="price"><i>{v.place}</i></p>
+                                                    </div>
+                                                </NavLink>
+                                            </li>
+                                        })
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
                     </li>
                 </ul>
 

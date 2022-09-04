@@ -1,0 +1,50 @@
+
+.root {
+  :global {
+    .loading {
+      width: 306px;
+      padding: 10px 20px;
+      margin: auto;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .loading2 {
+      padding: 10px 0;
+    }
+
+
+    .goods-list {
+      display: flex;
+      justify-content: space-between;
+      height: 406px;
+
+      li {
+        width: 306px;
+        height: 406px;
+        background: #f0f9f4;
+        transition: all .3s linear;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 3px 3px 3px #b0aeae;
+        }
+
+        img {
+          width: 306px;
+          height: 306px;
+        }
+
+        p {
+          font-size: 22px;
+          padding: 12px 30px 0 30px;
+          text-align: center;
+        }
+
+        .price {
+          color: $priceColor;
+        }
+      }
+    }
+  }
+}

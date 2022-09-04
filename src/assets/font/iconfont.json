@@ -6,6 +6,69 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "667792",
+      "name": "评论",
+      "font_class": "pinglun",
+      "unicode": "e6ad",
+      "unicode_decimal": 59053
+    },
+    {
+      "icon_id": "6775644",
+      "name": "爱心",
+      "font_class": "aixin",
+      "unicode": "eca1",
+      "unicode_decimal": 60577
+    },
+    {
+      "icon_id": "11372728",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e8bf",
+      "unicode_decimal": 59583
+    },
+    {
+      "icon_id": "82753",
+      "name": "未选中圆圈",
+      "font_class": "weixuanzhongyuanquan",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "2570240",
+      "name": "全选",
+      "font_class": "quanxuan",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "6966956",
+      "name": "右箭头",
+      "font_class": "youjiantou",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "122689",
+      "name": "cart",
+      "font_class": "cart",
+      "unicode": "e698",
+      "unicode_decimal": 59032
+    },
+    {
+      "icon_id": "5387583",
+      "name": "箭头_向右",
+      "font_class": "jiantou_xiangyou",
+      "unicode": "eb08",
+      "unicode_decimal": 60168
+    },
+    {
+      "icon_id": "1304897",
+      "name": "左箭头",
+      "font_class": "zuojiantou",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
       "icon_id": "145736",
       "name": "物流_填充",
       "font_class": "wuliutianchong",
@@ -67,13 +130,6 @@
       "font_class": "shouji",
       "unicode": "e6c7",
       "unicode_decimal": 59079
-    },
-    {
-      "icon_id": "624555",
-      "name": "购物车添加",
-      "font_class": "gouwuchetianjia",
-      "unicode": "e640",
-      "unicode_decimal": 58944
     }
   ]
 }

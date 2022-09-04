@@ -4,7 +4,7 @@ import style from './index.module.scss'
 import Footer from "@/components/Footer";
 import AppHeade from "@/components/AppHeade";
 import {useDispatch} from "react-redux";
-import {AsyncGetTabBaData} from '@/store/action/home'
+import {AsyncGetPanPai, AsyncGetTabBaData} from '@/store/action/home'
 import AppStickNav from "@/components/AppStickNav";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "@/pages/Home";
@@ -15,7 +15,7 @@ function Index() {
     useEffect(() => {
         window.onscroll = () => {
             let top = document.documentElement.scrollTop
-            if (top > 75) {
+            if (top > 80) {
                 setSticy(true)
             } else {
                 setSticy(false)
@@ -25,6 +25,7 @@ function Index() {
     }, [])
     useEffect(() => {
         dispatch(AsyncGetTabBaData())
+        dispatch(AsyncGetPanPai())
     }, [dispatch])
     return (
         <BrowserRouter>
@@ -36,10 +37,7 @@ function Index() {
                     <AppStickNav></AppStickNav>
                 </div>
 
-
                 <Route path='/' exact component={Home}></Route>
-
-
                 <Footer></Footer>
             </div>
         </BrowserRouter>

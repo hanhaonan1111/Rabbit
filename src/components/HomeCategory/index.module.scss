@@ -1,10 +1,14 @@
-@import "../../assets/style/comment";
 
 .root {
   :global {
+    .Skeleton {
+      div {
+        display: inline-block;
+        margin-right: 4px;
+      }
+    }
+
     .right {
-      width: 990px;
-      height: 500px;
 
       .layer {
         width: 990px;

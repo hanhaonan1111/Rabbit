@@ -1,6 +1,5 @@
-const {override, addWebpackAlias, addPostcssPlugins} = require('customize-cra');
+const {override, addWebpackAlias, adjustStyleLoaders} = require('customize-cra');
 const path = require('path')
-const px2viewport = require('postcss-px-to-viewport')
 
 
 module.exports = override(
@@ -8,13 +7,15 @@ module.exports = override(
     addWebpackAlias({
         '@': path.join(__dirname, "src"),
     }),
-    addPostcssPlugins([
-        px2viewport({
-            viewportWidth: 375
-        })
-    ]),
-    // fixBabelImports("import", {
-    //     libraryName: "antd-mobile",
-    //     style: "css",
-    // }),
+
+    adjustStyleLoaders(rule => {
+        if (rule.test.toString().includes("scss")) {
+            rule.use.push({
+                loader: require.resolve("sass-resources-loader"),
+                options: {
+                    resources: "./src/assets/style/comment.scss" //这里是你自己放公共scss变量的路径
+                }
+            });
+        }
+    })
 );
