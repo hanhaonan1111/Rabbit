@@ -8,6 +8,7 @@ import {AsyncGetPanPai, AsyncGetTabBaData} from '@/store/action/home'
 import AppStickNav from "@/components/AppStickNav";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "@/pages/Home";
+import Category from '@/pages/Category'
 
 function Index() {
     let [sticy, setSticy] = useState(false)
@@ -30,14 +31,23 @@ function Index() {
     return (
         <BrowserRouter>
             <div className={style.root}>
+                {/*头部黑条条*/}
                 <Nav></Nav>
+                {/*头部导航栏*/}
                 <AppHeade/>
-
                 <div className={['nav', sticy ? 'show' : 'none'].join(' ')}>
                     <AppStickNav></AppStickNav>
                 </div>
 
-                <Route path='/' exact component={Home}></Route>
+                {/*主体部分*/}
+                <div className='container'>
+                    {/*首页*/}
+                    <Route path='/' exact component={Home}></Route>
+                    {/*分类*/}
+                    <Route path='/category/:id' exact component={Category}></Route>
+                </div>
+
+                {/*底部*/}
                 <Footer></Footer>
             </div>
         </BrowserRouter>

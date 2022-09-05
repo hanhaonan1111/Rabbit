@@ -1,0 +1,63 @@
+.root {
+  :global {
+    .ref-goods {
+      background-color: #fff;
+      margin-top: 20px;
+      position: relative;
+
+      .head {
+        .xtx-more {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+        }
+
+        .tag {
+          text-align: center;
+          color: #999;
+          font-size: 20px;
+          position: relative;
+          top: -20px;
+        }
+      }
+
+      .body {
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        padding: 0 65px 30px;
+      }
+    }
+
+    .goods-item {
+      display: block;
+      width: 220px;
+      padding: 20px 30px;
+      text-align: center;
+
+
+      img {
+        width: 160px;
+        height: 160px;
+      }
+
+      p {
+        padding-top: 10px;
+      }
+
+      .name {
+        font-size: 16px;
+      }
+
+      .desc {
+        color: #999;
+        height: 29px;
+      }
+
+      .price {
+        color: $priceColor;
+        font-size: 20px;
+      }
+    }
+  }
+}

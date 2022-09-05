@@ -47,7 +47,6 @@ function HomeReducer(state = store, action) {
             }
         default:
             return state;
-
     }
 }
 

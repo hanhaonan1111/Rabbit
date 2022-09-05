@@ -4,10 +4,10 @@ import style from './index.module.scss'
 import {useSelector} from "react-redux";
 import Skeleton from "@/components/Skeleton";
 import {topCategory} from "@/assets/constant/randerData";
+import Lazyload from "@/components/Lazyload";
 
 function Index(props) {
     let {tabBarData, TabPinPai} = useSelector(v => v.HomeReducer)
-    console.log(tabBarData.length, '[][]')
     return (
         <div className={style.root}>
             <div className='home-category'>
@@ -28,9 +28,8 @@ function Index(props) {
                                                 v.goods.map(goods => {
                                                     return <li key={goods.id}>
                                                         <NavLink to="/">
-                                                            <img
-                                                                src={goods.picture}
-                                                                alt=""/>
+                                                            <Lazyload src={goods.picture}
+                                                                      alt=""></Lazyload>
                                                             <div className="info">
                                                                 <p className="name ellipsis-2">{goods.name}</p>
                                                                 <p className="desc ellipsis">{goods.desc}</p>
@@ -48,10 +47,12 @@ function Index(props) {
                         }) : (
                             topCategory.map((v, i) => {
                                 return (
-                                    <li className='Skeleton' key={i}>
+                                    <li key={i} className='Skeleton'>
                                         <NavLink to='/'>{v}</NavLink>
-                                        <Skeleton width={56} height={18} bg="rgba(255,255,255,0.2)"></Skeleton>
-                                        <Skeleton width={56} height={18} bg="rgba(255,255,255,0.2)"></Skeleton>
+                                        <Skeleton width={56} height={18} bg="rgba(255,255,255,0.3)"
+                                        ></Skeleton>
+                                        <Skeleton width={56} height={18} bg="rgba(255,255,255,0.3)"
+                                        ></Skeleton>
                                     </li>)
                             })
 
@@ -72,9 +73,8 @@ function Index(props) {
                                             }
                                             return <li key={v.id}>
                                                 <NavLink to="/">
-                                                    <img
-                                                        src={v.picture}
-                                                        alt=""/>
+                                                    <Lazyload src={v.picture}
+                                                              alt=""></Lazyload>
                                                     <div className="info">
                                                         <p className="name ellipsis-2">{v.name}</p>
                                                         <p className="desc ellipsis">{v.desc}</p>

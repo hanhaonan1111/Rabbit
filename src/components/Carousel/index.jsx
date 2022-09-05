@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {NavLink} from "react-router-dom";
 import style from './index.module.scss'
+import Lazyload from "@/components/Lazyload";
 
 function Index({swiper}) {
     let [now, setNow] = useState(0)
@@ -39,9 +40,7 @@ function Index({swiper}) {
                                 <li key={v.id}
                                     className={["carousel-item", i === now ? 'show' : 'fade'].join(' ')}>
                                     <NavLink to={v.hrefUrl}>
-                                        <img
-                                            src={v.imgUrl}
-                                            alt=""/>
+                                        <Lazyload src={v.imgUrl} alt=""></Lazyload>
                                     </NavLink>
                                 </li>
                             )
@@ -50,15 +49,21 @@ function Index({swiper}) {
 
                 </ul>
                 <a className="carousel-btn prev" ref={prev}>
-                    <i className="iconfont icon-angle-left"></i>
+                    <i className="iconfont icon-arrow-left"></i>
                 </a>
                 <a className="carousel-btn next" ref={next}>
-                    <i className="iconfont icon-angle-right"></i>
+                    <i className="iconfont icon-youjiantou"></i>
                 </a>
                 <div className="carousel-indicator">
                     {
                         swiper && swiper.map((v, i) => {
-                            return <span key={v.id} className={i === now ? 'active' : ''}></span>
+                            return <span
+                                key={v.id}
+                                className={i === now ? 'active' : ''}
+                                onClick={() => {
+                                    setNow(i)
+                                }}
+                            ></span>
                         })
                     }
 

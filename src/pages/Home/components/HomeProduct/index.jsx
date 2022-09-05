@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import HomePanel from '@/components/HomePannal'
 import GoodsItem from "@/components/GoodsItem";
 import {NavLink} from 'react-router-dom'
@@ -28,9 +28,6 @@ function Index(props) {
                             </HomePanel>
                             <div className="box">
                                 <NavLink className="cover" to="/">
-                                    <img
-                                        src={v.picture}
-                                        alt=""/>
                                     <strong className="label">
                                         <span>{v.name}馆</span>
                                         <span>{v.saleInfo}</span>
@@ -39,7 +36,6 @@ function Index(props) {
                                 <ul className="goods-list">
                                     {
                                         v.goods.map(value => {
-                                            console.log(value)
                                             return <li key={value.id}>
                                                 <GoodsItem goods={value}/>
                                             </li>

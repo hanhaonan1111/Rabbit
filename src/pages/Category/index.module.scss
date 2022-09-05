@@ -1,0 +1,67 @@
+.root {
+  :global {
+    .container {
+
+      .swiperBox {
+        position: relative;
+        height: 500px;
+
+        .carousel-indicator {
+          left: 0 !important;
+          width: 1240px;
+        }
+      }
+
+      .prev {
+        left: 0 !important;
+      }
+
+
+    }
+
+    .top-category {
+      h3 {
+        font-size: 28px;
+        color: #666;
+        font-weight: normal;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .sub-list {
+        margin-top: 20px;
+        background-color: #fff;
+
+        ul {
+          display: flex;
+          padding: 0 32px;
+          flex-wrap: wrap;
+
+          li {
+            width: 168px;
+            height: 160px;
+
+            a {
+              text-align: center;
+              display: block;
+              font-size: 16px;
+
+              img {
+                width: 100px;
+                height: 100px;
+              }
+
+              p {
+                line-height: 40px;
+              }
+
+              &:hover {
+                color: $xtxColor;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

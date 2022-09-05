@@ -8,10 +8,7 @@ function Index(props) {
         <header className='app-header'>
             <div className="container">
                 <h1 className="logo"><NavLink to="/">小兔鲜</NavLink></h1>
-
                 <AppHeaderNav></AppHeaderNav>
-
-
                 <div className="search">
                     <i className="iconfont icon-sousuo"></i>
                     <input type="text" placeholder="搜一搜"/>

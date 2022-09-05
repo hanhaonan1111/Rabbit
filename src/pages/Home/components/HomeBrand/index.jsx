@@ -4,6 +4,7 @@ import {NavLink} from "react-router-dom";
 import HomePanel from '@/components/HomePannal'
 import {useSelector} from "react-redux";
 import Skeleton from "@/components/Skeleton";
+import Lazyload from "@/components/Lazyload";
 
 function Index(props) {
     let {HotBrand} = useSelector(v => v.HomeReducer)
@@ -13,11 +14,9 @@ function Index(props) {
     useEffect(() => {
         if (next.current) {
             next.current.onclick = () => {
-                console.log('next', page)
                 setPage((page) => 1)
             }
             prev.current.onclick = () => {
-                console.log('prev', page)
                 setPage((page) => 0)
             }
 
@@ -37,7 +36,7 @@ function Index(props) {
                         HotBrand.length > 0 ? HotBrand.map((v, i) => {
                             return <li key={v.id}>
                                 <NavLink to="/">
-                                    <img src={v.picture} alt=""/>
+                                    <Lazyload src={v.picture} alt=""></Lazyload>
                                 </NavLink>
                             </li>
                         }) : new Array(5).fill(0).map((v, i) => {

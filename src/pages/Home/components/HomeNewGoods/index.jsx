@@ -6,6 +6,7 @@ import XtxMore from '@/components/More'
 import {useDispatch, useSelector} from "react-redux";
 import {AsyncGetNewGoods} from "@/store/action/home";
 import Skeleton from "@/components/Skeleton";
+import Lazyload from "@/components/Lazyload";
 
 function Index(props) {
     let dispatch = useDispatch()
@@ -13,7 +14,6 @@ function Index(props) {
         dispatch(AsyncGetNewGoods())
     }, [dispatch])
     let {HomeNewGoods} = useSelector(v => v.HomeReducer)
-    let skeleton = [1, 2, 3, 4,]
     return (
         <div className={style.root}>
             <div className="home-new">
@@ -29,21 +29,20 @@ function Index(props) {
                         HomeNewGoods.length > 0 ? HomeNewGoods.map(v => {
                                 return <li key={v.id}>
                                     <NavLink to={'/product/' + v.id}>
-                                        <img alt="" src={v.picture}/>
+                                        <Lazyload src={v.picture} alt=""></Lazyload>
                                         <p className="name ellipsis">{v.name}</p>
                                         <p className="price">&yen;{v.price}</p>
                                     </NavLink>
                                 </li>
                             }) :
-                            skeleton.map(v => {
-                                return <li key={v}>
+                            new Array(4).fill(0).map((v, i) => {
+                                return <li key={i}>
                                     <div><Skeleton width={306} height={306} bg="rgba(0,0,0,0.2)"></Skeleton></div>
 
                                     <div className="loading">
                                         <Skeleton
                                             width={190} height={42}
                                             bg="rgba(0,0,0,0.2)">
-
                                         </Skeleton>
                                     </div>
                                     <div className="loading  loading2">

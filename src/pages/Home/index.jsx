@@ -8,7 +8,7 @@ import HomeNewGoods from "@/pages/Home/components/HomeNewGoods";
 import HomeHot from './components/HomeHot'
 import HomeBrand from "@/pages/Home/components/HomeBrand";
 import HomeProduct from "@/pages/Home/components/HomeProduct";
-import HomeSpecial from "@/pages/Home/HomeSpecial";
+import HomeSpecial from "@/pages/Home/components/HomeSpecial";
 
 function Index() {
     let dispatch = useDispatch()

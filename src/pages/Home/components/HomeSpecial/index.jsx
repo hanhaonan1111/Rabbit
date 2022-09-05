@@ -1,8 +1,8 @@
 import React from 'react';
 import HomePanel from '@/components/HomePannal'
-import More from '@/components/More'
 import {NavLink} from "react-router-dom";
 import style from './index.module.scss'
+import Lazyload from "@/components/Lazyload";
 
 function Index(props) {
     return (
@@ -15,9 +15,10 @@ function Index(props) {
                     new Array(3).fill(0).map((v, i) => {
                         return <div className="special-item" key={i}>
                             <NavLink to="/">
-                                <img
+                                <Lazyload
+                                    alt=''
                                     src={`http://zhoushugang.gitee.io/erabbit-client-pc-static/uploads/topic_goods_${i + 1}.jpg`}
-                                    alt/>
+                                ></Lazyload>
                                 <div className="meta">
                                     <p className="title">
                                         <span className="top ellipsis">看到撒娇的撒娇的凯撒就</span>
