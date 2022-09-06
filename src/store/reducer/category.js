@@ -1,5 +1,7 @@
 let store = {
-    CurrentCatagoryList: {}
+    CurrentCatagoryList: {},
+    SubCatagoryList: {},
+
 }
 
 export default function Category(state = store, action) {
@@ -8,6 +10,11 @@ export default function Category(state = store, action) {
             return {
                 ...state,
                 CurrentCatagoryList: {...action.data}
+            }
+        case 'category/setSubCategory':
+            return {
+                ...state,
+                SubCatagoryList: {...action.data}
             }
         default:
             return {...state}

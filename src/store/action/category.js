@@ -15,3 +15,19 @@ export function AsyncCatagoryList(id) {
         dispatch(setCatagoryList(res.result))
     }
 }
+
+export function setSubCategory(data) {
+    return {
+        type: 'category/setSubCategory',
+        data
+    }
+}
+
+export function AsyncSubCategory(id) {
+    return async dispatch => {
+        let {result} = await http({
+            url: '/category/sub/filter?id=' + id
+        })
+        dispatch(setSubCategory(result))
+    }
+}

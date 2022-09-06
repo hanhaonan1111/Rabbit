@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, useParams} from "react-router-dom";
+import {NavLink, useHistory, useParams} from "react-router-dom";
 import style from './index.module.scss'
 import {useSelector} from "react-redux";
 import {topCategory} from "@/assets/constant/randerData";
@@ -12,6 +12,7 @@ function scroll() {
 function Index(props) {
     let {tabBarData} = useSelector(v => v.HomeReducer)
     let {id} = useParams()
+    let histroy = useHistory()
 
     return (
         <div className={style.root}>
@@ -32,11 +33,15 @@ function Index(props) {
                                     <ul>
                                         {
                                             v.children.map(val => {
+                                                
                                                 return (<li key={val.id}>
-                                                        <a href='#'>
+                                                        <NavLink
+                                                            to={'/category/sub/' + val.id}
+                                                        >
+
                                                             <Lazyload src={val.picture} alt=""></Lazyload>
                                                             <p>{val.name}</p>
-                                                        </a>
+                                                        </NavLink>
                                                     </li>
                                                 )
                                             })

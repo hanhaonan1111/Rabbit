@@ -9,6 +9,7 @@ import AppStickNav from "@/components/AppStickNav";
 import {BrowserRouter, Route} from "react-router-dom";
 import Home from "@/pages/Home";
 import Category from '@/pages/Category'
+import SubCategory from "@/pages/SubCategory";
 
 function Index() {
     let [sticy, setSticy] = useState(false)
@@ -45,6 +46,9 @@ function Index() {
                     <Route path='/' exact component={Home}></Route>
                     {/*分类*/}
                     <Route path='/category/:id' exact component={Category}></Route>
+                    {/*二级分类*/}
+                    <Route path='/category/sub/:id' exact component={SubCategory}></Route>
+
                 </div>
 
                 {/*底部*/}

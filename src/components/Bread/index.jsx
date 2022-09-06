@@ -16,7 +16,6 @@ function Index3({split, children}) {
             setData(text)
             ref.current = text
         }, 500)
-
     }, [text])
 
 
@@ -31,9 +30,9 @@ function Index3({split, children}) {
                                     <NavLink to={v.props.path ? v.props.path : '/'}>{v.props.children}</NavLink> :
                                     (
                                         <div className='lastBox'>
-                                            <span className={['after'].join(' ')}
-                                                  ref={iTag}
-                                            >{data}</span>
+                                            <div className={['after'].join(' ')}
+                                                 ref={iTag}
+                                            >{data}</div>
                                         </div>
                                     )
                             }

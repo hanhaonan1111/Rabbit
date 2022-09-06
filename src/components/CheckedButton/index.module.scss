@@ -1,0 +1,31 @@
+.root {
+  :global {
+    .active {
+      color: $xtxColor !important;
+    }
+
+    .xtx-checkbox {
+      display: inline-block;
+      margin-right: 2px;
+
+      .icon-checked {
+        color: $xtxColor;
+
+        ~ span {
+          color: $xtxColor;
+        }
+      }
+
+      i {
+        cursor: pointer;
+        position: relative;
+        top: 1px;
+      }
+
+      span {
+        cursor: pointer;
+        margin-left: 2px;
+      }
+    }
+  }
+}
