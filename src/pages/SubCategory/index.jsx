@@ -38,6 +38,7 @@ function SunCategory(props) {
     useEffect(() => {
         dispatch(ClearGoods())
     }, [id])
+    
     useEffect(() => {
         dispatch(AsyncSubCategory(id))
         dispatch(setFilterOption(condition))
