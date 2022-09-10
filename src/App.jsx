@@ -1,11 +1,14 @@
-import React from 'react';
-import {BrowserRouter as Router, Route,} from 'react-router-dom'
+import React, {useEffect} from 'react';
+import {Router, Route,} from 'react-router-dom'
 import Layout from '@/pages/Layout'
+import history from "@/utils/history";
+import ScrollToTop from "@/utils/ScrollToTop";
 
 function App() {
     return (
         <div>
-            <Router>
+            <Router history={history}>
+                <ScrollToTop/>
                 <Route path='/' component={Layout}></Route>
             </Router>
         </div>

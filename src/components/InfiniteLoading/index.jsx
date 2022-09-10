@@ -52,8 +52,6 @@ function Index({brandId, attrs, categoryId, condition}) {
                             <span className="text">亲，没有更多了</span>
                         </div>
                 }
-
-
             </div>
         </div>
     );

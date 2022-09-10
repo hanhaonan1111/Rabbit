@@ -36,6 +36,9 @@ function SunCategory(props) {
     }, [condition])
 
     useEffect(() => {
+        dispatch(ClearGoods())
+    }, [id])
+    useEffect(() => {
         dispatch(AsyncSubCategory(id))
         dispatch(setFilterOption(condition))
         condition.pageSize && dispatch(AsyncGetFilterdGoods(condition))

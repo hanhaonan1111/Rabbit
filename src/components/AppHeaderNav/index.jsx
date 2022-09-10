@@ -18,7 +18,7 @@ function Index(props) {
         <div className={style.root}>
             <ul className="navs">
                 <li className="home">
-                    <NavLink to='/' exact>首页</NavLink>
+                    <NavLink to='/index' exact>首页</NavLink>
                 </li>
                 {
                     tabBarData.length > 0 ? (

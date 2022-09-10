@@ -8,7 +8,7 @@ function Index(props) {
         <div className={style.root}>
             <header className='app-header'>
                 <div className="container">
-                    <h1 className="logo"><NavLink to="/">小兔鲜</NavLink></h1>
+                    <h1 className="logo"><NavLink to="/index">小兔鲜</NavLink></h1>
 
                     <AppHeaderNav></AppHeaderNav>
 

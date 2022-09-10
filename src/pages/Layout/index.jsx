@@ -6,10 +6,11 @@ import AppHeade from "@/components/AppHeade";
 import {useDispatch} from "react-redux";
 import {AsyncGetPanPai, AsyncGetTabBaData} from '@/store/action/home'
 import AppStickNav from "@/components/AppStickNav";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Redirect, Route} from "react-router-dom";
 import Home from "@/pages/Home";
 import Category from '@/pages/Category'
 import SubCategory from "@/pages/SubCategory";
+import ScrollToTop from "@/utils/ScrollToTop";
 
 function Index() {
     let [sticy, setSticy] = useState(false)
@@ -31,6 +32,7 @@ function Index() {
     }, [dispatch])
     return (
         <BrowserRouter>
+            <ScrollToTop/>
             <div className={style.root}>
                 {/*头部黑条条*/}
                 <Nav></Nav>
@@ -42,8 +44,9 @@ function Index() {
 
                 {/*主体部分*/}
                 <div className='container'>
+                    <Redirect to={'/index'} from={'/'} exact></Redirect>
                     {/*首页*/}
-                    <Route path='/' exact component={Home}></Route>
+                    <Route path='/index' exact component={Home}></Route>
                     {/*分类*/}
                     <Route path='/category/:id' exact component={Category}></Route>
                     {/*二级分类*/}
