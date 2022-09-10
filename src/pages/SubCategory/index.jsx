@@ -33,7 +33,8 @@ function SunCategory(props) {
     useEffect(() => {
         dispatch(ClearGoods())
         dispatch(setFilterOption({...FilterOption, page: 1}))
-    }, [condition.brandId, condition.attrs, condition.categoryId])
+    }, [condition])
+
     useEffect(() => {
         dispatch(AsyncSubCategory(id))
         dispatch(setFilterOption(condition))
@@ -164,6 +165,7 @@ function SunCategory(props) {
                             brandId={condition.brandId}
                             attrs={condition.attrs}
                             categoryId={condition.categoryId}
+                            condition={condition}
                         ></InfiniteLoading>
                     </div>
                 </div>

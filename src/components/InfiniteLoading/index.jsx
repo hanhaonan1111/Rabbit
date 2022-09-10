@@ -3,7 +3,7 @@ import style from './index.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {AsyncGetFilterdGoods, setFilterdGoods, setFilterOption} from "@/store/action/category";
 
-function Index({brandId, attrs, categoryId}) {
+function Index({brandId, attrs, categoryId, condition}) {
     let load = useRef(null)
     let isLoad = useRef(null)
     let {FilterdGoods, FilterOption} = useSelector(v => v.CategoryReducer)
@@ -11,13 +11,15 @@ function Index({brandId, attrs, categoryId}) {
     let [page, setPage] = useState(0)
     // 当上面的筛选条件变化之后,就需要更新页码!
     useEffect(() => {
-        console.log(brandId, attrs, categoryId, '筛选条件变了')
+        console.log(condition, 'change')
         setPage(0)
         dispatch(setFilterOption({...FilterOption, page: 1}))
-    }, [brandId, attrs, categoryId])
+
+    }, [condition])
 
     useEffect(() => {
         dispatch(setFilterOption({...FilterOption, page: page + 1}))
+
         if (page > 1) {
             dispatch(AsyncGetFilterdGoods(FilterOption))
         }
@@ -41,13 +43,14 @@ function Index({brandId, attrs, categoryId}) {
         <div className={style.root}>
             <div className="xtx-infinite-loading">
                 {
-                    !(FilterdGoods.pages === FilterdGoods.page) ? <div className="loading" ref={load}>
-                        <span className="img"></span>
-                        <span className="text">正在加载...</span>
-                    </div> : <div className="none">
-                        <span className="img"></span>
-                        <span className="text">亲，没有更多了</span>
-                    </div>
+                    (FilterdGoods.pages && (FilterdGoods.pages > FilterdGoods.page)) ?
+                        <div className="loading" ref={load}>
+                            <span className="img"></span>
+                            <span className="text">正在加载...</span>
+                        </div> : <div className="none">
+                            <span className="img"></span>
+                            <span className="text">亲，没有更多了</span>
+                        </div>
                 }
 
 
