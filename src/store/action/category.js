@@ -31,3 +31,38 @@ export function AsyncSubCategory(id) {
         dispatch(setSubCategory(result))
     }
 }
+
+export function setFilterdGoods(data) {
+    return {
+        type: 'category/setFilterdGoods',
+        data
+    }
+}
+
+
+export function AsyncGetFilterdGoods(data) {
+    let request = {
+        ...data,
+    }
+    return async dispatch => {
+        let {result} = await http({
+            url: '/category/goods/temporary',
+            method: 'POST',
+            data: request
+        })
+        dispatch(setFilterdGoods(result))
+    }
+}
+
+export function ClearGoods() {
+    return {
+        type: 'category/clearGoods',
+    }
+}
+
+export function setFilterOption(data) {
+    return {
+        type: 'category/setFilterOption',
+        data
+    }
+}

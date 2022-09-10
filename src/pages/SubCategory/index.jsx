@@ -3,19 +3,15 @@ import style from './index.module.scss'
 import Bread from "@/components/Bread";
 import BreadItem from "@/components/Bread/BreadItem";
 import {useDispatch, useSelector} from "react-redux";
-import {AsyncSubCategory} from '@/store/action/category'
+import {AsyncGetFilterdGoods, AsyncSubCategory, ClearGoods, setFilterOption} from '@/store/action/category'
 import {useParams} from "react-router-dom";
 import Skeleton from "@/components/Skeleton";
 import Sort from "@/pages/SubCategory/component/Sort";
+import InfiniteLoading from "@/components/InfiniteLoading";
+import CategoryGoodsItem from "@/components/CategoryGoodsItem";
 
 function SunCategory(props) {
-    let dispatch = useDispatch()
     let {id} = useParams()
-    useEffect(() => {
-        dispatch(AsyncSubCategory(id))
-    }, [id])
-    let {SubCatagoryList} = useSelector(v => v.CategoryReducer)
-
     let [condition, setCondition] = useState({
         categoryId: id,
         // 上面的筛选条件
@@ -31,6 +27,20 @@ function SunCategory(props) {
         sortField: null,
         sortMethod: null
     })
+    let dispatch = useDispatch()
+
+    let {SubCatagoryList, FilterdGoods, FilterOption} = useSelector(v => v.CategoryReducer)
+    useEffect(() => {
+        dispatch(ClearGoods())
+        dispatch(setFilterOption({...FilterOption, page: 1}))
+    }, [condition.brandId, condition.attrs, condition.categoryId])
+    useEffect(() => {
+        dispatch(AsyncSubCategory(id))
+        dispatch(setFilterOption(condition))
+        condition.pageSize && dispatch(AsyncGetFilterdGoods(condition))
+    }, [id, condition])
+
+
     return (
         <div className={style.root}>
             <div className='sub-category'>
@@ -135,9 +145,27 @@ function SunCategory(props) {
                             })
                         }
                     </div>
+                    {/*数据展示区*/}
+                    <div className="goods-list">
+                        {/*二级筛选区域*/}
+                        <Sort className='margin' condition={condition} setCondition={setCondition}></Sort>
+                        <ul className='listBox'>
+                            {
+                                FilterdGoods && FilterdGoods.items?.map((v, i) => {
+                                    return <li key={i + '[][]'}>
+                                        <CategoryGoodsItem goods={v}/>
+                                    </li>
+                                })
+                            }
+                        </ul>
 
-                    {/*二级筛选区域*/}
-                    <Sort className='margin' condition={condition} setCondition={setCondition}></Sort>
+                        <InfiniteLoading
+                            loading={true}
+                            brandId={condition.brandId}
+                            attrs={condition.attrs}
+                            categoryId={condition.categoryId}
+                        ></InfiniteLoading>
+                    </div>
                 </div>
 
             </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import Lazyload from "@/components/Lazyload";
 import style from './index.module.scss'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
-function Index({ goods }) {
+function Index({goods}) {
     return (
         <div className={style.root}>
             <NavLink to={'/product/' + goods.id} className='goods-item'>

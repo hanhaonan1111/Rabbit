@@ -1,6 +1,8 @@
 let store = {
     CurrentCatagoryList: {},
     SubCatagoryList: {},
+    FilterdGoods: {},
+    FilterOption: {}
 
 }
 
@@ -16,8 +18,53 @@ export default function Category(state = store, action) {
                 ...state,
                 SubCatagoryList: {...action.data}
             }
+        case 'category/clearGoods':
+            return {
+                ...state,
+                FilterdGoods: {}
+            }
+        case  'category/setFilterdGoods':
+            let origin = state.FilterdGoods.items || []
+            return {
+                ...state,
+                FilterdGoods: {
+                    ...action.data,
+                    items: [
+                        ...origin,
+                        ...action.data.items
+                    ],
+                    pages: action.data.pages,
+                }
+
+            }
+        case  'category/setFilterOption':
+            return {
+                ...state,
+                FilterOption: {...action.data}
+
+            }
         default:
             return {...state}
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

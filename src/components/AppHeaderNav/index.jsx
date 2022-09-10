@@ -33,7 +33,7 @@ function Index(props) {
                                     <ul>
                                         {
                                             v.children.map(val => {
-                                                
+
                                                 return (<li key={val.id}>
                                                         <NavLink
                                                             to={'/category/sub/' + val.id}
