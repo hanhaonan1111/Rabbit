@@ -1,0 +1,52 @@
+.root {
+  :global {
+    .goods-sales {
+      display: flex;
+      width: 400px;
+      align-items: center;
+      text-align: center;
+      height: 140px;
+
+      li {
+        flex: 1;
+        position: relative;
+
+        ~ li::after {
+          position: absolute;
+          top: 10px;
+          left: 0;
+          height: 60px;
+          border-left: 1px solid #e4e4e4;
+          content: "";
+        }
+
+        p {
+          &:first-child {
+            color: #999;
+          }
+
+          &:nth-child(2) {
+            color: $priceColor;
+            margin-top: 10px;
+          }
+
+          &:last-child {
+            color: #666;
+            margin-top: 10px;
+
+            i {
+              color: $xtxColor;
+              font-size: 14px;
+              margin-right: 2px;
+            }
+
+            &:hover {
+              color: $xtxColor;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

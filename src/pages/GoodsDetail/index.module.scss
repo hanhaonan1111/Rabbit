@@ -1,0 +1,112 @@
+.root {
+  :global {
+    .container {
+      background-color: #f7f7f7;
+    }
+
+    .active {
+      display: block !important;
+    }
+
+    .goods-info {
+      min-height: 600px;
+      background: #fff;
+      display: flex;
+
+
+      .media {
+        width: 580px;
+        height: 600px;
+        padding: 30px 50px;
+
+        .goods-image {
+          width: 480px;
+          height: 400px;
+          position: relative;
+          display: flex;
+          z-index: 500;
+
+          .large {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 412px;
+            width: 400px;
+            height: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-repeat: no-repeat;
+            background-size: 800px 800px;
+            background-color: #f8f8f8;
+          }
+
+          .middle {
+            width: 400px;
+            height: 400px;
+            cursor: move;
+
+            .layer2 {
+              position: absolute;
+              left: 0;
+              top: 0;
+            }
+
+            .layer {
+              display: none;
+              width: 200px;
+              height: 200px;
+              background: rgba(0, 0, 0, .2);
+
+            }
+          }
+
+          .small {
+            width: 80px;
+
+            li {
+              width: 68px;
+              height: 68px;
+              margin-left: 12px;
+              margin-bottom: 15px;
+              cursor: pointer;
+
+              &:hover, &.active {
+                border: 2px solid $xtxColor;
+              }
+            }
+          }
+        }
+      }
+
+      .spec {
+        flex: 1;
+        padding: 30px 30px 30px 0;
+      }
+    }
+
+    .goods-footer {
+      display: flex;
+      margin-top: 20px;
+
+      .goods-article {
+        width: 940px;
+        margin-right: 20px;
+      }
+
+      .goods-aside {
+        width: 280px;
+        min-height: 1000px;
+      }
+    }
+
+    .goods-tabs {
+      min-height: 600px;
+      background: #fff;
+    }
+
+    .goods-warn {
+      min-height: 600px;
+      background: #fff;
+      margin-top: 20px;
+    }
+  }
+}

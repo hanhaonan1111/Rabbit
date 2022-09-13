@@ -18,6 +18,7 @@
     "redux-thunk": "^2.3.0",
     "sass": "^1.35.2",
     "sass-resources-loader": "^2.2.5",
+    "url-loader": "^4.1.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

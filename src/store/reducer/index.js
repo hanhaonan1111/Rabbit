@@ -4,4 +4,6 @@ import HomeReducer from './home'
 
 import CategoryReducer from "./category";
 
-export default combineReducers({HomeReducer, CategoryReducer})
+import DetailReducer from "./detail"
+
+export default combineReducers({HomeReducer, CategoryReducer, DetailReducer})

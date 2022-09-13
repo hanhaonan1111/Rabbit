@@ -11,6 +11,7 @@ import Home from "@/pages/Home";
 import Category from '@/pages/Category'
 import SubCategory from "@/pages/SubCategory";
 import ScrollToTop from "@/utils/ScrollToTop";
+import GoodsDetail from "@/pages/GoodsDetail";
 
 function Index() {
     let [sticy, setSticy] = useState(false)
@@ -51,7 +52,8 @@ function Index() {
                     <Route path='/category/:id' exact component={Category}></Route>
                     {/*二级分类*/}
                     <Route path='/category/sub/:id' exact component={SubCategory}></Route>
-
+                    {/*商品详情页面*/}
+                    <Route path='/product/:id' exact component={GoodsDetail}></Route>
                 </div>
 
                 {/*底部*/}
