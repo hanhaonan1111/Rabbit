@@ -1,0 +1,305 @@
+ @import '~@/assets/common.scss';
+
+ .root {
+     :global {
+         .app-topnav {
+             background: #333;
+
+             ul {
+                 display: flex;
+                 height: 53px;
+                 justify-content: flex-end;
+                 align-items: center;
+
+                 li {
+                     a {
+                         padding: 0 15px;
+                         color: #cdcdcd;
+                         line-height: 1;
+                         display: inline-block;
+
+                         i {
+                             font-size: 14px;
+                             margin-right: 2px;
+                         }
+
+                         &:hover {
+                             color: $xtxColor;
+                         }
+                     }
+
+                     ~li {
+                         a {
+                             border-left: 2px solid #666;
+                         }
+                     }
+                 }
+             }
+         }
+
+         .app-header {
+             background: #fff;
+
+             .container {
+                 display: flex;
+                 align-items: center;
+             }
+
+             .logo {
+                 width: 200px;
+
+                 a {
+                     display: block;
+                     height: 132px;
+                     width: 100%;
+                     text-indent: -9999px;
+                     background: url(../assets/images/logo.png) no-repeat center 18px / contain;
+                 }
+             }
+
+             .navs {
+                 width: 820px;
+                 display: flex;
+                 justify-content: space-around;
+                 padding-left: 40px;
+
+                 li {
+                     margin-right: 40px;
+                     width: 38px;
+                     text-align: center;
+
+                     a {
+                         font-size: 16px;
+                         line-height: 32px;
+                         height: 32px;
+                         display: inline-block;
+                     }
+
+                     &:hover {
+                         a {
+                             color: $xtxColor;
+                             border-bottom: 1px solid $xtxColor;
+                         }
+                     }
+                 }
+             }
+
+             .search {
+                 width: 170px;
+                 height: 32px;
+                 position: relative;
+                 border-bottom: 1px solid #e7e7e7;
+                 line-height: 32px;
+
+                 .icon-search {
+                     font-size: 18px;
+                     margin-left: 5px;
+                 }
+
+                 input {
+                     width: 140px;
+                     padding-left: 5px;
+                     color: #666;
+                 }
+             }
+
+             .cart {
+                 width: 50px;
+
+                 .curr {
+                     height: 32px;
+                     line-height: 32px;
+                     text-align: center;
+                     position: relative;
+                     display: block;
+
+                     .icon-cart {
+                         font-size: 22px;
+                     }
+
+                     em {
+                         font-style: normal;
+                         position: absolute;
+                         right: 0;
+                         top: 0;
+                         padding: 1px 6px;
+                         line-height: 1;
+                         background: $helpColor;
+                         color: #fff;
+                         font-size: 12px;
+                         border-radius: 10px;
+                         font-family: Arial;
+                     }
+                 }
+             }
+         }
+
+         .app-footer {
+             overflow: hidden;
+             background-color: #f5f5f5;
+             padding-top: 20px;
+
+             .contact {
+                 background: #fff;
+
+                 .container {
+                     padding: 60px 0 40px 25px;
+                     display: flex;
+                 }
+
+                 dl {
+                     height: 190px;
+                     text-align: center;
+                     padding: 0 72px;
+                     border-right: 1px solid #f2f2f2;
+                     color: #999;
+
+                     &:first-child {
+                         padding-left: 0;
+                     }
+
+                     &:last-child {
+                         border-right: none;
+                         padding-right: 0;
+                     }
+                 }
+
+                 dt {
+                     line-height: 1;
+                     font-size: 18px;
+                 }
+
+                 dd {
+                     margin: 36px 12px 0 0;
+                     float: left;
+                     width: 92px;
+                     height: 92px;
+                     padding-top: 10px;
+                     border: 1px solid #ededed;
+
+                     .iconfont {
+                         font-size: 36px;
+                         display: block;
+                         color: #666;
+                     }
+
+                     &:hover {
+                         .iconfont {
+                             color: $xtxColor;
+                         }
+                     }
+
+                     &:last-child {
+                         margin-right: 0;
+                     }
+                 }
+
+                 .qrcode {
+                     width: 92px;
+                     height: 92px;
+                     padding: 7px;
+                     border: 1px solid #ededed;
+                 }
+
+                 .download {
+                     padding-top: 5px;
+                     font-size: 14px;
+                     width: auto;
+                     height: auto;
+                     border: none;
+
+                     span {
+                         display: block;
+                     }
+
+                     a {
+                         display: block;
+                         line-height: 1;
+                         padding: 10px 25px;
+                         margin-top: 5px;
+                         color: #fff;
+                         border-radius: 2px;
+                         background-color: $xtxColor;
+                     }
+                 }
+
+                 .hotline {
+                     padding-top: 20px;
+                     font-size: 22px;
+                     color: #666;
+                     width: auto;
+                     height: auto;
+                     border: none;
+
+                     small {
+                         display: block;
+                         font-size: 15px;
+                         color: #999;
+                     }
+                 }
+             }
+
+             .extra {
+                 background-color: #333;
+             }
+
+             .slogan {
+                 height: 178px;
+                 line-height: 58px;
+                 padding: 60px 100px;
+                 border-bottom: 1px solid #434343;
+                 display: flex;
+                 justify-content: space-between;
+
+                 a {
+                     height: 58px;
+                     line-height: 58px;
+                     color: #fff;
+                     font-size: 28px;
+
+                     i {
+                         font-size: 50px;
+                         vertical-align: middle;
+                         margin-right: 10px;
+                         font-weight: 100;
+                     }
+
+                     span {
+                         vertical-align: middle;
+                         text-shadow: 0 0 1px #333;
+                     }
+                 }
+             }
+
+             .copyright {
+                 height: 170px;
+                 padding-top: 40px;
+                 text-align: center;
+                 color: #999;
+                 font-size: 15px;
+
+                 p {
+                     line-height: 1;
+                     margin-bottom: 20px;
+                 }
+
+                 a {
+                     color: #999;
+                     line-height: 1;
+                     padding: 0 10px;
+                     border-right: 1px solid #999;
+
+                     &:last-child {
+                         border-right: none;
+                     }
+                 }
+             }
+         }
+
+         .container {
+             width: 1240px;
+             margin: 0 auto;
+             position: relative;
+         }
+     }
+ }

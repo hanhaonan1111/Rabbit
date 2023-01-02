@@ -1,0 +1,104 @@
+@import '~@/assets/common.scss';
+
+.root {
+    :global {
+        .box {
+            height: 500px;
+            position: relative;
+
+            .bg {
+                height: 500px;
+
+                .prev {
+                    left: 260px !important;
+                }
+            }
+
+            .left {
+                position: absolute;
+                top: 0;
+                left: 0;
+                float: left;
+            }
+        }
+
+        .home-panel {
+            background-color: #fff;
+
+            .head {
+                padding: 40px 0;
+                display: flex;
+                align-items: flex-end;
+
+                h3 {
+                    flex: 1;
+                    font-size: 32px;
+                    font-weight: normal;
+                    margin-left: 6px;
+                    height: 35px;
+                    line-height: 35px;
+
+                    small {
+                        font-size: 16px;
+                        color: #999;
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+
+        .goods-list {
+            display: flex;
+            justify-content: space-between;
+            height: 406px;
+
+            li {
+                width: 306px;
+                height: 406px;
+                background: #f0f9f4;
+
+                img {
+                    width: 306px;
+                    height: 306px;
+                }
+
+                p {
+                    font-size: 22px;
+                    padding: 12px 30px 0 30px;
+                    text-align: center;
+                }
+
+                .price {
+                    color: $priceColor;
+                }
+            }
+        }
+
+        .goods-list {
+            display: flex;
+            justify-content: space-between;
+            height: 426px;
+
+            li {
+                width: 306px;
+                height: 406px;
+
+                img {
+                    width: 306px;
+                    height: 306px;
+                }
+
+                p {
+                    font-size: 22px;
+                    padding-top: 12px;
+                    text-align: center;
+                }
+
+                .desc {
+                    color: #999;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
