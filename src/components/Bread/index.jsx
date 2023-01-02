@@ -1,21 +1,24 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './index.module.scss'
-export default function index() {
+export default function Index({ children }) {
     return (
         <div className={style.root}>
-            <div class='xtx-bread'>
-                <div class="xtx-bread-item">
-                    <NavLink to="/">首页</NavLink>
-                </div>
-                <i class="iconfont icon-angle-right"></i>
-                <div class="xtx-bread-item">
-                    <NavLink to="/category/10000">电器</NavLink>
-                </div>
-                <i class="iconfont icon-angle-right"></i>
-                <div class="xtx-bread-item">
-                    <span>空调</span>
-                </div>
+            <div className='xtx-bread'>
+                {
+                    children.map((v, i) => {
+                        let props = v.props
+                        return <div key={i}>
+                            <div className="xtx-bread-item">
+                                <NavLink to={props.to}>{props.children}</NavLink>
+                                {
+                                    i !== children.length - 1 && <i className="iconfont icon-angle-right"></i>
+                                }
+                            </div>
+
+                        </div>
+                    })
+                }
             </div>
         </div>
     )

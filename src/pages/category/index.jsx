@@ -1,10 +1,16 @@
 import React from 'react'
-import Skeleton from '@/components/Skeleton'
-export default function index() {
+import Bread from '@/components/Bread'
+import Item from '@/components/Bread/Item'
+export default function Index() {
+
+
     return (
         <div>
-            123
-            <Skeleton width={200} height={80} bg='#000'></Skeleton>
+            {/* 面包屑部分 */}
+            <Bread>
+                <Item to="/"> 首页</Item>
+                <Item to="/category/10000"> 家电</Item>
+            </Bread>
         </div>
     )
 }
